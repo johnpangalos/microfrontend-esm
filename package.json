@@ -1,0 +1,7 @@
+{
+  "name": "esm-test",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "pnpm run -r --filter \"@microfrontend/*\" dev"
+  }
+}
