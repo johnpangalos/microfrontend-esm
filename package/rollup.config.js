@@ -1,7 +1,7 @@
 import pkg from "./package.json";
 import typescript from "@rollup/plugin-typescript";
 import jsx from "acorn-jsx";
-import resolve from "@rollup/plugin-node-resolve";
+import replace from "@rollup/plugin-replace";
 
 const config = {
   input: "./src/main.tsx",
@@ -11,11 +11,24 @@ const config = {
       format: "esm",
       sourcemap: true,
     },
+    {
+      file: pkg.main,
+      format: "cjs",
+      sourcemap: true,
+    },
   ],
   acornInjectPlugins: [jsx()],
   plugins: [
-    resolve(),
-    typescript({ jsx: "react", target: "ESNext", module: "ESNEXT" }),
+    replace({
+      react: "'https://cdn.skypack.dev/react'",
+      delimiters: ["'", "'"],
+    }),
+    typescript({
+      allowSyntheticDefaultImports: true,
+      jsx: "react",
+      target: "ESNext",
+      module: "ESNEXT",
+    }),
   ],
 };
 

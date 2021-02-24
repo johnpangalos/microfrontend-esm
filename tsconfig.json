@@ -9,7 +9,7 @@
     "sourceMap": true,
     "jsx": "react",
     "declaration": true,
-    "outDir": "dist",
+    "declarationDir": "dist",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "resolveJsonModule": true,

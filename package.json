@@ -2,6 +2,8 @@
   "name": "esm-test",
   "version": "0.0.0",
   "scripts": {
-    "dev": "pnpm run -r --filter \"@microfrontend/*\" dev"
+    "dev": "pnpm run --parallel --filter \"@microfrontend/*\" dev",
+    "build": "pnpm run --filter \"@microfrontend/*\" build",
+    "serve": "pnpm run --parallel --filter \"@microfrontend/*\" serve"
   }
 }

@@ -1,7 +1,5 @@
-declare var React: any;
-import { Renderer } from "react-dom";
-declare var ReactDOM: { render: Renderer };
-import "./index.css";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import App from "./App";
 
 ReactDOM.render(
