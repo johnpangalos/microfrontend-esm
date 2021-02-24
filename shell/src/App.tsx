@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+declare var React: any;
 import { Button } from "http://localhost:5000/main.mjs";
+const { useState } = React;
 
 function App() {
   const [count, setCount] = useState(0);

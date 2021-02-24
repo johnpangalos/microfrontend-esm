@@ -1,3 +1,6 @@
+import { FC } from "react";
+declare var React: { FC: FC };
+
 export const Button: React.FC<{ onClick: () => void }> = ({
   children,
   onClick,

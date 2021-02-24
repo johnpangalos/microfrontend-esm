@@ -1,6 +1,7 @@
-import sucrase from "@rollup/plugin-sucrase";
-
 import pkg from "./package.json";
+import typescript from "@rollup/plugin-typescript";
+import jsx from "acorn-jsx";
+import resolve from "@rollup/plugin-node-resolve";
 
 const config = {
   input: "./src/main.tsx",
@@ -11,16 +12,10 @@ const config = {
       sourcemap: true,
     },
   ],
-  external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.peerDependencies || {}),
-  ],
+  acornInjectPlugins: [jsx()],
   plugins: [
-    sucrase({
-      exclude: ["node_modules/**"],
-      production: true,
-      transforms: ["jsx", "typescript"],
-    }),
+    resolve(),
+    typescript({ jsx: "react", target: "ESNext", module: "ESNEXT" }),
   ],
 };
 
